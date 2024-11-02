@@ -7,7 +7,6 @@ export default async function Home() {
 
   if (!session) {
     redirect("/login");
-    // return null;
   }
 
   return (
