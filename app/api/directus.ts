@@ -1,4 +1,10 @@
-import { createDirectus, readItems, rest, staticToken } from "@directus/sdk";
+import {
+  createDirectus,
+  readItems,
+  rest,
+  staticToken,
+  createItem,
+} from "@directus/sdk";
 import { Household, UserHouseholdAssignment } from "@/types/household";
 
 type DBSchema = {
@@ -18,4 +24,24 @@ export async function getHouseholdByUserEmail(email: string) {
   );
 
   return data[0];
+}
+
+export async function createHousehold(name: string) {
+  return await client.request(
+    createItem("households", {
+      name,
+    })
+  );
+}
+
+export async function assignUserToHousehold(
+  householdId: string,
+  userEmail: string
+) {
+  return await client.request(
+    createItem("user_household_assignments", {
+      household_id: householdId,
+      user_email: userEmail,
+    })
+  );
 }

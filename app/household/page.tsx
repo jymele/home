@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
 import type { Metadata } from "next";
+import { createHouseholdAction } from "@/actions/householdActions";
 
 export const metadata: Metadata = {
   title: "Household",
@@ -15,5 +16,15 @@ export default async function Household() {
     redirect("/login");
   }
 
-  return <div>Household</div>;
+  return (
+    <div>
+      Create a Household
+      <form action={createHouseholdAction}>
+        <div>
+          <input type="text" name="name" placeholder="Household Name" />
+        </div>
+        <button type="submit">Create</button>
+      </form>
+    </div>
+  );
 }
