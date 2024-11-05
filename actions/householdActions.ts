@@ -12,7 +12,7 @@ export async function createHouseholdAction(formData: FormData) {
 
   const household = await createHousehold(formData.get("name") as string);
 
-  console.log("household", household);
+  //   console.log("household", household);
 
   await assignUserToHousehold(household.id, session.user!.email as string);
 
