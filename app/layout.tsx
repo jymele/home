@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Logout from "@/components/logout";
+import Toolbar from "@/components/toolbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased p-4`}>
-        <Logout />
         {children}
+        <Toolbar />
       </body>
     </html>
   );

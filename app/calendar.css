@@ -1,0 +1,26 @@
+@import "../node_modules/react-calendar/dist/Calendar.css";
+
+.react-calendar {
+  @apply bg-transparent border-none w-full;
+}
+
+.react-calendar__tile {
+  @apply py-4 flex items-center justify-center;
+}
+
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  @apply rounded-md;
+}
+
+.react-calendar__tile--now {
+  @apply bg-green-800 rounded-md;
+}
+
+/**
+* Hide the arrows to change the year
+*/
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  @apply hidden;
+}
