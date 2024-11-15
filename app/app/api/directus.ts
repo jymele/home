@@ -7,11 +7,13 @@ import {
 } from "@directus/sdk";
 import { Household, UserHouseholdAssignment } from "@/types/household";
 import { Meal } from "@/types/meal";
+import { ShoppingItem } from "@/types/shoppingitem";
 
 type DBSchema = {
   households: Household[];
   user_household_assignments: UserHouseholdAssignment[];
   meals: Meal[];
+  shoppingitems: ShoppingItem[];
 };
 
 const client = createDirectus<DBSchema>(process.env.DIRECTUS_URL!)
@@ -44,6 +46,16 @@ export async function assignUserToHousehold(
     createItem("user_household_assignments", {
       household_id: householdId,
       user_email: userEmail,
+    })
+  );
+}
+
+export async function addShoppingItem(name: string, householdId: string) {
+  const res = await client.request(
+    createItem("shoppingitems", {
+      name: name,
+      household: householdId,
+      bought: false,
     })
   );
 }

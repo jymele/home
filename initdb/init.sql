@@ -917,6 +917,20 @@ CREATE TABLE public.meals (
 ALTER TABLE public.meals OWNER TO directus;
 
 --
+-- Name: shoppingitems; Type: TABLE; Schema: public; Owner: directus
+--
+
+CREATE TABLE public.shoppingitems (
+    id uuid NOT NULL,
+    name character varying(255),
+    household character varying(255),
+    bought boolean DEFAULT false
+);
+
+
+ALTER TABLE public.shoppingitems OWNER TO directus;
+
+--
 -- Name: user_household_assignments; Type: TABLE; Schema: public; Owner: directus
 --
 
@@ -1042,6 +1056,19 @@ COPY public.directus_activity (id, action, "user", "timestamp", ip, user_agent, 
 32	update	102cd2ce-69db-44fc-91ef-5b4641e18c8a	2024-11-07 16:33:05.335+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36	directus_fields	16	\N	http://localhost:8055
 33	delete	102cd2ce-69db-44fc-91ef-5b4641e18c8a	2024-11-07 16:34:56.034+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36	directus_collections	rooms	\N	http://localhost:8055
 34	delete	102cd2ce-69db-44fc-91ef-5b4641e18c8a	2024-11-07 16:35:18.25+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36	directus_collections	user_room_assignment	\N	http://localhost:8055
+35	login	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 20:23:05.576+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	directus_users	97a84cb4-89a7-4a94-9c78-62d3df6f030c	\N	http://localhost:8055
+36	create	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 20:42:16.075+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	directus_fields	18	\N	http://localhost:8055
+37	create	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 20:42:16.086+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	directus_collections	shoppingitems	\N	http://localhost:8055
+38	create	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 20:42:26.493+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	directus_fields	19	\N	http://localhost:8055
+39	create	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 20:56:49.422+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	directus_fields	20	\N	http://localhost:8055
+40	create	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 20:57:08.423+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	directus_fields	21	\N	http://localhost:8055
+41	create	102cd2ce-69db-44fc-91ef-5b4641e18c8a	2024-11-15 21:05:45.844+00	172.20.0.1	node	shoppingitems	38b16479-d988-4927-b683-04db546c9e03	\N	\N
+42	create	102cd2ce-69db-44fc-91ef-5b4641e18c8a	2024-11-15 21:08:42.471+00	172.20.0.1	node	shoppingitems	6c9b0280-ed88-47d9-bf3b-ebb29abe1ab1	\N	\N
+43	create	102cd2ce-69db-44fc-91ef-5b4641e18c8a	2024-11-15 21:15:38.864+00	172.20.0.1	node	shoppingitems	5c6ccbe4-218d-4336-bc98-09f56f1c827a	\N	\N
+44	create	102cd2ce-69db-44fc-91ef-5b4641e18c8a	2024-11-15 21:16:18.832+00	172.20.0.1	node	shoppingitems	e0a3a787-e104-45a5-bafe-4e7e39eb484e	\N	\N
+45	delete	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 21:16:33.001+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	shoppingitems	6c9b0280-ed88-47d9-bf3b-ebb29abe1ab1	\N	http://localhost:8055
+46	delete	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 21:16:33.004+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	shoppingitems	5c6ccbe4-218d-4336-bc98-09f56f1c827a	\N	http://localhost:8055
+47	delete	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 21:16:33.005+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	shoppingitems	38b16479-d988-4927-b683-04db546c9e03	\N	http://localhost:8055
 \.
 
 
@@ -1053,6 +1080,7 @@ COPY public.directus_collections (collection, icon, note, display_template, hidd
 households	\N	\N	\N	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	\N	\N	open	\N	f
 user_household_assignments	\N	\N	\N	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	\N	\N	open	\N	f
 meals	\N	\N	\N	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	\N	\N	open	\N	f
+shoppingitems	\N	\N	\N	f	f	\N	\N	t	\N	\N	\N	all	\N	\N	\N	\N	open	\N	f
 \.
 
 
@@ -1096,6 +1124,10 @@ COPY public.directus_fields (id, collection, field, special, interface, options,
 17	meals	note	\N	input	\N	\N	\N	f	f	3	full	\N	\N	\N	f	\N	\N	\N
 15	meals	date	\N	datetime	\N	\N	\N	f	f	4	full	\N	\N	\N	f	\N	\N	\N
 16	meals	household_id	\N	input	\N	\N	\N	f	f	5	full	\N	\N	\N	f	\N	\N	\N
+18	shoppingitems	id	uuid	input	\N	\N	\N	t	t	1	full	\N	\N	\N	f	\N	\N	\N
+19	shoppingitems	name	\N	input	\N	\N	\N	f	f	2	full	\N	\N	\N	f	\N	\N	\N
+20	shoppingitems	household	\N	input	\N	\N	\N	f	f	3	full	\N	\N	\N	f	\N	\N	\N
+21	shoppingitems	bought	cast-boolean	boolean	\N	\N	\N	f	f	4	full	\N	\N	\N	f	\N	\N	\N
 \.
 
 
@@ -1309,6 +1341,15 @@ COPY public.directus_revisions (id, activity, collection, item, data, delta, par
 28	30	directus_fields	17	{"id":17,"collection":"meals","field":"note","special":null,"interface":"input","options":null,"display":null,"display_options":null,"readonly":false,"hidden":false,"sort":3,"width":"full","translations":null,"note":null,"conditions":null,"required":false,"group":null,"validation":null,"validation_message":null}	{"collection":"meals","field":"note","sort":3,"group":null}	\N	\N
 29	31	directus_fields	15	{"id":15,"collection":"meals","field":"date","special":null,"interface":"datetime","options":null,"display":null,"display_options":null,"readonly":false,"hidden":false,"sort":4,"width":"full","translations":null,"note":null,"conditions":null,"required":false,"group":null,"validation":null,"validation_message":null}	{"collection":"meals","field":"date","sort":4,"group":null}	\N	\N
 30	32	directus_fields	16	{"id":16,"collection":"meals","field":"household_id","special":null,"interface":"input","options":null,"display":null,"display_options":null,"readonly":false,"hidden":false,"sort":5,"width":"full","translations":null,"note":null,"conditions":null,"required":false,"group":null,"validation":null,"validation_message":null}	{"collection":"meals","field":"household_id","sort":5,"group":null}	\N	\N
+31	36	directus_fields	18	{"sort":1,"hidden":true,"readonly":true,"interface":"input","special":["uuid"],"field":"id","collection":"shoppingitems"}	{"sort":1,"hidden":true,"readonly":true,"interface":"input","special":["uuid"],"field":"id","collection":"shoppingitems"}	\N	\N
+32	37	directus_collections	shoppingitems	{"singleton":false,"collection":"shoppingitems"}	{"singleton":false,"collection":"shoppingitems"}	\N	\N
+33	38	directus_fields	19	{"sort":2,"interface":"input","special":null,"collection":"shoppingitems","field":"name"}	{"sort":2,"interface":"input","special":null,"collection":"shoppingitems","field":"name"}	\N	\N
+34	39	directus_fields	20	{"sort":3,"interface":"input","special":null,"collection":"shoppingitems","field":"household"}	{"sort":3,"interface":"input","special":null,"collection":"shoppingitems","field":"household"}	\N	\N
+35	40	directus_fields	21	{"sort":4,"interface":"boolean","special":["cast-boolean"],"collection":"shoppingitems","field":"bought"}	{"sort":4,"interface":"boolean","special":["cast-boolean"],"collection":"shoppingitems","field":"bought"}	\N	\N
+36	41	shoppingitems	38b16479-d988-4927-b683-04db546c9e03	{"name":"newone","household":"1","bought":false}	{"name":"newone","household":"1","bought":false}	\N	\N
+37	42	shoppingitems	6c9b0280-ed88-47d9-bf3b-ebb29abe1ab1	{"name":"sugar","household":"hiddenid","bought":false}	{"name":"sugar","household":"hiddenid","bought":false}	\N	\N
+38	43	shoppingitems	5c6ccbe4-218d-4336-bc98-09f56f1c827a	{"name":"Sugar","household":"hiddenid","bought":false}	{"name":"Sugar","household":"hiddenid","bought":false}	\N	\N
+39	44	shoppingitems	e0a3a787-e104-45a5-bafe-4e7e39eb484e	{"name":"Movie ticket","household":"bb9d2dac-e65b-4f17-82f9-9eaa7d15df7f","bought":false}	{"name":"Movie ticket","household":"bb9d2dac-e65b-4f17-82f9-9eaa7d15df7f","bought":false}	\N	\N
 \.
 
 
@@ -1326,8 +1367,8 @@ f9abb9bd-b834-42a8-9cd9-0df26c2efc0f	Administrator	verified	$t:admin_description
 --
 
 COPY public.directus_sessions (token, "user", expires, ip, user_agent, share, origin, next_token) FROM stdin;
-gktaYuqbrLhPN_hQhgILt7qiKA3ZKXIvV0HVZfbVUmWXC4eYfbPpdS_ECt7X4QiR	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-12 19:31:06.943+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
-Xi4kzo7Hw1f77g512h-n_j4GodzH-4Y9VXZmKiZ0vPHG7L4BAtx2LCUFVpHY6mnV	102cd2ce-69db-44fc-91ef-5b4641e18c8a	2024-11-14 16:12:05.747+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
+z61GLZ5EZ4VIIEqlDFX3YcgwUB_jlq-6deGu5Jag2cyv8BYjB7A9mm_ezEDNwu8R	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-15 21:16:33.282+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	\N	http://localhost:8055	TvXw3iHWSrCPSHOeyriK7GGiJPmS_xnoOPt9AxLtkghA25ccJwL64x2xuBRYiOtg
+TvXw3iHWSrCPSHOeyriK7GGiJPmS_xnoOPt9AxLtkghA25ccJwL64x2xuBRYiOtg	97a84cb4-89a7-4a94-9c78-62d3df6f030c	2024-11-16 21:16:23.282+00	172.20.0.1	Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36	\N	http://localhost:8055	\N
 \.
 
 
@@ -1360,8 +1401,8 @@ COPY public.directus_translations (id, language, key, value) FROM stdin;
 --
 
 COPY public.directus_users (id, first_name, last_name, email, password, location, title, description, tags, avatar, language, tfa_secret, status, role, token, last_access, last_page, provider, external_identifier, auth_data, email_notifications, appearance, theme_dark, theme_light, theme_light_overrides, theme_dark_overrides) FROM stdin;
-97a84cb4-89a7-4a94-9c78-62d3df6f030c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$0aqG2yMUpiSEOn+OAh7E3g$LkASJJKAUBHX1EQ7IFH9vxUdynOWgJGHLt0KgFhbtpE	\N	\N	\N	\N	\N	\N	\N	active	f9abb9bd-b834-42a8-9cd9-0df26c2efc0f	\N	2024-11-05 19:31:06.999+00	/settings/data-model/user_household_assignments	default	\N	\N	t	\N	\N	\N	\N	\N
 102cd2ce-69db-44fc-91ef-5b4641e18c8a	Joel	Ymele Leki	jymele@yahoo.fr	$argon2id$v=19$m=65536,t=3,p=4$kTJjy7FVKjB4OgbSlUUGRg$qJqhStYfeTiTVVVVQUlWfrhV8gHn6k/VhVzrC7N8hIc	\N	\N	\N	\N	\N	\N	\N	active	f9abb9bd-b834-42a8-9cd9-0df26c2efc0f	ax2A0wqWqkfY0Pe3HDCFr6usjfcPptlJ	2024-11-07 16:12:05.791+00	/settings/data-model	default	\N	\N	t	\N	\N	\N	\N	\N
+97a84cb4-89a7-4a94-9c78-62d3df6f030c	Admin	User	admin@example.com	$argon2id$v=19$m=65536,t=3,p=4$0aqG2yMUpiSEOn+OAh7E3g$LkASJJKAUBHX1EQ7IFH9vxUdynOWgJGHLt0KgFhbtpE	\N	\N	\N	\N	\N	\N	\N	active	f9abb9bd-b834-42a8-9cd9-0df26c2efc0f	\N	2024-11-15 21:16:23.288+00	/content/shoppingitems	default	\N	\N	t	\N	\N	\N	\N	\N
 \.
 
 
@@ -1395,6 +1436,15 @@ bb9d2dac-e65b-4f17-82f9-9eaa7d15df7f	Winville
 --
 
 COPY public.meals (id, name, date, household_id, note) FROM stdin;
+\.
+
+
+--
+-- Data for Name: shoppingitems; Type: TABLE DATA; Schema: public; Owner: directus
+--
+
+COPY public.shoppingitems (id, name, household, bought) FROM stdin;
+e0a3a787-e104-45a5-bafe-4e7e39eb484e	Movie ticket	bb9d2dac-e65b-4f17-82f9-9eaa7d15df7f	f
 \.
 
 
@@ -1467,14 +1517,14 @@ COPY topology.layer (topology_id, layer_id, schema_name, table_name, feature_col
 -- Name: directus_activity_id_seq; Type: SEQUENCE SET; Schema: public; Owner: directus
 --
 
-SELECT pg_catalog.setval('public.directus_activity_id_seq', 34, true);
+SELECT pg_catalog.setval('public.directus_activity_id_seq', 47, true);
 
 
 --
 -- Name: directus_fields_id_seq; Type: SEQUENCE SET; Schema: public; Owner: directus
 --
 
-SELECT pg_catalog.setval('public.directus_fields_id_seq', 17, true);
+SELECT pg_catalog.setval('public.directus_fields_id_seq', 21, true);
 
 
 --
@@ -1509,7 +1559,7 @@ SELECT pg_catalog.setval('public.directus_relations_id_seq', 1, false);
 -- Name: directus_revisions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: directus
 --
 
-SELECT pg_catalog.setval('public.directus_revisions_id_seq', 30, true);
+SELECT pg_catalog.setval('public.directus_revisions_id_seq', 39, true);
 
 
 --
@@ -1804,6 +1854,14 @@ ALTER TABLE ONLY public.households
 
 ALTER TABLE ONLY public.meals
     ADD CONSTRAINT meals_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: shoppingitems shoppingitems_pkey; Type: CONSTRAINT; Schema: public; Owner: directus
+--
+
+ALTER TABLE ONLY public.shoppingitems
+    ADD CONSTRAINT shoppingitems_pkey PRIMARY KEY (id);
 
 
 --

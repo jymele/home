@@ -14,6 +14,9 @@ export default function Toolbar() {
           <Link href={"/meal/list"}>Meals</Link>
         </div>
         <div>
+          <Link href="/shoppinglist">Shopping</Link>
+        </div>
+        <div>
           <Link href="/profile">Profile</Link>
         </div>
       </div>
