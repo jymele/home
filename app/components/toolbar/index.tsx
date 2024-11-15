@@ -11,7 +11,7 @@ export default function Toolbar() {
           <Link href="/household">Household</Link>
         </div> */}
         <div>
-          <Link href={"/meal/add"}>Add Meal</Link>
+          <Link href={"/meal/list"}>Meals</Link>
         </div>
         <div>
           <Link href="/profile">Profile</Link>

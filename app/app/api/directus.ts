@@ -6,10 +6,12 @@ import {
   createItem,
 } from "@directus/sdk";
 import { Household, UserHouseholdAssignment } from "@/types/household";
+import { Meal } from "@/types/meal";
 
 type DBSchema = {
   households: Household[];
   user_household_assignments: UserHouseholdAssignment[];
+  meals: Meal[];
 };
 
 const client = createDirectus<DBSchema>(process.env.DIRECTUS_URL!)
