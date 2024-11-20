@@ -17,6 +17,8 @@ export default function ShowShoppingList(props: Props) {
   const [shoppingList, setShoppingList] = useState<ShoppingItem[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // TODO: have the list refresh automatically when an item is added
+
   useEffect(() => {
     // fetch shopping list
     refreshList();
