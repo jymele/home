@@ -59,3 +59,16 @@ export async function addShoppingItem(name: string, householdId: string) {
     })
   );
 }
+
+export async function getItemsByHousehold(
+  householdId: string,
+  item: "shoppingitems"
+) {
+  const data = await client.request(
+    readItems(item, {
+      filter: { household: { _eq: householdId } },
+    })
+  );
+
+  return data;
+}

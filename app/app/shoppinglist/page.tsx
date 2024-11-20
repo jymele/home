@@ -1,8 +1,9 @@
-import Client from "./client";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
 import { getHouseholdByUserEmail } from "@/app/api/directus";
+import AddShoppingList from "./addShoppingList";
+import ShowShoppingList from "./showShoppingList.tsx";
 
 export default async function ShoppingListPage() {
   const session: Session | null = await auth();
@@ -17,7 +18,8 @@ export default async function ShoppingListPage() {
 
   return (
     <>
-      <Client householdid={household.household_id} />
+      <AddShoppingList householdid={household.household_id} />
+      <ShowShoppingList householdid={household.household_id} />
     </>
   );
 }
