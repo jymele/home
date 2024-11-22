@@ -1,9 +1,7 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
-import { supabase } from "@/app/api/supabase/init";
 import { getHouseholdByUserEmail } from "@/app/api/supabase/UserHouseholdAssignment";
-import { get } from "http";
 
 export default async function Home() {
   const session: Session | null = await auth();
@@ -17,6 +15,10 @@ export default async function Home() {
   );
 
   // console.log("Here is the data", data);
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
 
   if (data?.length === 0) {
     redirect("/household");
