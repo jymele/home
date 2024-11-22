@@ -16,7 +16,7 @@ export default async function Home() {
     session.user?.email as string
   );
 
-  console.log("Here is the data", data);
+  // console.log("Here is the data", data);
 
   if (data?.length === 0) {
     redirect("/household");

@@ -1,0 +1,11 @@
+.toolbar {
+  @apply flex gap-4 mx-auto w-full justify-center items-center p-2;
+}
+
+.toolbar > div {
+  @apply flex-1 flex justify-center items-center;
+}
+
+.link {
+  @apply p-2 inline-block transition duration-300 ease-out hover:text-blue-500;
+}

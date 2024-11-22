@@ -6,7 +6,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   @apply bg-slate-50 text-slate-800;
 }
-
-.toolbar-link {
-  @apply p-2 inline-block transition duration-300 ease-out hover:text-blue-500;
-}

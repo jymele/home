@@ -1,27 +1,28 @@
 import Link from "next/link";
 import { UserRound, Sandwich, ShoppingCart, House } from "lucide-react";
+import styles from "./toolbar.module.css";
 
 export default function Toolbar() {
   return (
     <div className="fixed bottom-0 left-0  w-screen bg-slate-50">
-      <div className="flex gap-4 mx-auto w-fit p-2">
+      <div className={styles.toolbar}>
         <div>
-          <Link className="toolbar-link" href="/">
+          <Link className={styles.link} href="/">
             <House />
           </Link>
         </div>
         <div>
-          <Link className="toolbar-link" href={"/meal/list"}>
+          <Link className={styles.link} href={"/meal/list"}>
             <Sandwich />
           </Link>
         </div>
         <div>
-          <Link className="toolbar-link" href="/shoppinglist">
+          <Link className={styles.link} href="/shoppinglist">
             <ShoppingCart />
           </Link>
         </div>
         <div>
-          <Link className="toolbar-link" href="/profile">
+          <Link className={styles.link} href="/profile">
             <UserRound />
           </Link>
         </div>
