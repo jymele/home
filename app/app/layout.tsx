@@ -18,10 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased p-4`}>
-        {children}
-        <Toolbar />
-      </body>
+      <body className={`${inter.className} antialiased p-4`}>{children}</body>
     </html>
   );
 }
