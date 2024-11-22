@@ -1,30 +1,40 @@
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
-import { Session } from "next-auth";
-import type { Metadata } from "next";
+"use client";
 import { createHouseholdAction } from "@/actions/householdActions";
+import { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Household",
-  description: "Create a household",
-};
+export default function Household() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [householdName, setHouseholdName] = useState("");
 
-export default async function Household() {
-  const session: Session | null = await auth();
-
-  if (!session) {
-    redirect("/login");
-  }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    await createHouseholdAction(householdName);
+    setIsSubmitting(false);
+    setHouseholdName("");
+  };
 
   return (
-    <div>
-      Create a Household
-      <form action={createHouseholdAction}>
+    <>
+      <form onSubmit={handleSubmit}>
         <div>
-          <input type="text" name="name" placeholder="Household Name" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Household Name"
+            className="rounded-md border border-slate-500/20 w-full p-2 text-xs"
+            value={householdName}
+            onChange={(e) => setHouseholdName(e.target.value)}
+          />
         </div>
-        <button type="submit">Create</button>
+        <button
+          className="bg-slate-950 text-slate-50 mt-4 w-full py-1 text-sm transition duration-300 active:scale-95 disabled:bg-slate-950/40 hover:bg-slate-700 rounded-md"
+          type="submit"
+          disabled={isSubmitting}
+        >
+          Create
+        </button>
       </form>
-    </div>
+    </>
   );
 }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { UserRound, Sandwich, ShoppingCart, House } from "lucide-react";
+import { UserRound, Sandwich, House } from "lucide-react";
 import styles from "./toolbar.module.css";
 
 export default function Toolbar() {
@@ -16,11 +16,11 @@ export default function Toolbar() {
             <Sandwich />
           </Link>
         </div>
-        <div>
+        {/* <div>
           <Link className={styles.link} href="/shoppinglist">
             <ShoppingCart />
           </Link>
-        </div>
+        </div> */}
         <div>
           <Link className={styles.link} href="/profile">
             <UserRound />
