@@ -12,15 +12,10 @@ export default function Toolbar() {
           </Link>
         </div>
         <div>
-          <Link className={styles.link} href={"/meal/list"}>
+          <Link className={styles.link} href={"/meal"}>
             <Sandwich />
           </Link>
         </div>
-        {/* <div>
-          <Link className={styles.link} href="/shoppinglist">
-            <ShoppingCart />
-          </Link>
-        </div> */}
         <div>
           <Link className={styles.link} href="/profile">
             <UserRound />

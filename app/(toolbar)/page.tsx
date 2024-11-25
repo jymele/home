@@ -26,7 +26,8 @@ export default async function Home() {
 
   return (
     <div>
-      <h1>Hi {session.user?.name}</h1>
+      {/* <h1>Hi {session.user?.name}</h1> */}
+      <h1>New Test</h1>
     </div>
   );
 }

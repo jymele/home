@@ -1,14 +1,12 @@
 "use client";
 import login from "@/actions/login";
+import { Button } from "@/components/ui/button";
 
 export default function Login() {
   return (
     <div className="w-screen min-h-screen flex items-center justify-center">
       <form action={login}>
-        <button
-          type="submit"
-          className="flex gap-2 items-center rounded-md border border-slate-500/20 py-2 px-4"
-        >
+        <Button type="submit" variant={"outline"}>
           <svg
             className="mr-2 h-4 w-4"
             aria-hidden="true"
@@ -25,7 +23,7 @@ export default function Login() {
             ></path>
           </svg>
           Signin with Google
-        </button>
+        </Button>
       </form>
     </div>
   );
