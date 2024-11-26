@@ -25,7 +25,7 @@ export default function AddMealForm(props: Props) {
 
   const [date, setDate] = React.useState<Date>();
   const [mealName, setMealName] = React.useState<string>();
-  const [notes, setNotes] = React.useState<string>();
+  const [notes, setNotes] = React.useState<string>("");
   const [loading, setLoading] = React.useState(false);
 
   const time = useTime();
@@ -35,10 +35,15 @@ export default function AddMealForm(props: Props) {
     setDate(new Date());
   }, []);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    console.log({ date, mealName, notes, householdId });
+    // console.log({ date, mealName, notes, householdId });
+
+    await fetch(
+      `/api/meal/add?meal=${mealName}&date=${date}&notes=${notes}&householdId=${householdId}`,
+      {}
+    );
 
     // setTimeout(() => {
     //   setLoading(false);
