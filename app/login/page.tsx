@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Login() {
   return (
-    <div className="w-screen min-h-screen flex items-center justify-center">
+    <div className="w-full min-h-[100dvh] flex items-center justify-center">
       <form action={login}>
         <Button type="submit" variant={"outline"}>
           <svg

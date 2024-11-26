@@ -4,7 +4,7 @@ import styles from "./toolbar.module.css";
 
 export default function Toolbar() {
   return (
-    <div className="fixed bottom-0 left-0  w-screen bg-slate-50">
+    <div className="fixed bottom-0 left-0  w-screen bg-white">
       <div className={styles.toolbar}>
         <div>
           <Link className={styles.link} href="/">
