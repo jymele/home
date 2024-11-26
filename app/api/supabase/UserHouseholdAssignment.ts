@@ -6,7 +6,12 @@ export async function getHouseholdByUserEmail(user_email: string) {
     .select("*")
     .eq("user_email", user_email);
 
-  return { data, error };
+  if (error) {
+    throw error;
+  }
+
+  // return { data, error };
+  return data[0];
 }
 
 export async function assignUserToHousehold(
