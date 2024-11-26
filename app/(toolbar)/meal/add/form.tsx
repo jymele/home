@@ -38,7 +38,6 @@ export default function AddMealForm(props: Props) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    // console.log({ date, mealName, notes, householdId });
 
     await fetch(
       `/api/meal/add?meal=${mealName}&date=${date}&notes=${notes}&householdId=${householdId}`,
@@ -48,6 +47,11 @@ export default function AddMealForm(props: Props) {
     // setTimeout(() => {
     //   setLoading(false);
     // }, 1000);
+
+    setDate(new Date());
+    setMealName("");
+    setNotes("");
+
     setLoading(false);
   }
 
