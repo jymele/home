@@ -1,17 +1,17 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
-import { Calendar } from "@/components/ui/calendar";
+import { getHouseholdByUserEmail } from "@/app/api/supabase/UserHouseholdAssignment";
+import List from "./list";
+import { auth } from "@/auth";
+import { Session } from "next-auth";
 
-export default function Page() {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+export default async function Page() {
+  const session: Session = (await auth()) as Session;
+  const household = await getHouseholdByUserEmail(
+    session.user!.email as string
+  );
 
   return (
-    <div>
-      <h1>Meal</h1>
-      <Link href="/meal/add">Add a meal</Link>
-
-      <Calendar selected={date} onSelect={setDate} className="" />
-    </div>
+    <>
+      <List id={household.household_id} />
+    </>
   );
 }
