@@ -1,7 +1,7 @@
 export type Meal = {
   id: string;
-  name: string;
+  meal_name: string;
   date: string;
-  note: string;
-  household_id: string;
+  notes: string;
+  householdId: string;
 };

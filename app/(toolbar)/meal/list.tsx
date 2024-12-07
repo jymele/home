@@ -12,6 +12,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import "./style.css";
+import { Meal } from "@/types/meal";
 
 type Props = {
   id: string;
@@ -22,22 +23,23 @@ export default function List(props: Props) {
 
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [loading, setLoading] = useState(false);
-  //   console.log(id);
+  const [meal, setMeal] = useState<Meal[]>([]);
 
   useEffect(() => {
     setLoading(true);
     if (date == undefined) {
       setDate(new Date());
     }
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
+
+    fetch(`/api/meal/get?householdId=${id}&date=${date}`)
+      .then((res) => res.json())
+      .then((data) => setMeal(data as Meal[]))
+      .then(() => setLoading(false));
   }, [date]);
 
   return (
     <div>
-      <h1>Meal {id}</h1>
-      <Link href="/meal/add">Add a meal</Link>
+      <h1>Meal</h1>
 
       <Calendar
         mode="single"
@@ -48,27 +50,44 @@ export default function List(props: Props) {
 
       {loading && <Skeleton className="h-48 w-full" />}
 
-      {!loading && (
-        <Card className="">
-          <CardHeader>
-            <CardTitle className="text-xl font-bold">{id}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex items-center text-sm text-muted-foreground">
-              <CalendarIcon className="mr-2 h-4 w-4" />
-              <time dateTime={date?.toISOString()}>
-                {date?.toLocaleDateString(undefined, {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-            </div>
-          </CardContent>
-          <CardFooter></CardFooter>
-        </Card>
+      {!loading && meal.length === 0 && (
+        <>
+          <div className="text-center text-muted-foreground mt-10">
+            No meals found for this date : {date?.toLocaleDateString()}
+          </div>
+          <div className="text-center p-2 ">
+            <Link href="/meal/add">Add a meal</Link>
+          </div>
+        </>
       )}
+
+      {!loading && meal.length > 0 && <MealCard {...meal[0]} />}
     </div>
+  );
+}
+
+function MealCard(props: Meal) {
+  const date: Date = new Date(props.date);
+
+  return (
+    <Card className="">
+      <CardHeader>
+        <CardTitle className="text-xl font-bold">{props.meal_name}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="flex items-center text-sm text-muted-foreground">
+          <CalendarIcon className="mr-2 h-4 w-4" />
+          <time dateTime={date.toISOString()}>
+            {date.toLocaleDateString(undefined, {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
+        </div>
+      </CardContent>
+      <CardFooter></CardFooter>
+    </Card>
   );
 }
